@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VoiceGPT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="chat-sessions">
+            <button id="new-chat">syntax</button>
+            <div id="chat-tabs">
+                <div id="chat-session-0" class="chat-session-tab active-tab">.</div>
+            </div>
+        </div>
+        <div id="chat-window">
+            <div id="chat-log"></div>
+            <div id="bot-typing" style="display: none;">Bot is typing...</div>
+            <div id="input-area">
+                <input type="text" id="user-input">
+                <button id="mic-btn">Mic</button>
+                <button id="submit-btn">Submit</button>
+            </div>      
+        </div>
+        <!-- Adding an Unmute button -->
+        <!-- Adding an Unmute button with an id -->
+        <button id="unmute-btn" onclick="toggleAudio()">Click here and ask questions!</button>
+        
+    </div>
+    
+    <!-- Autoplaying the muted background music -->
+    <audio id="background-audio" loop autoplay muted>
+        <source src="om.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script src="chatbot.js"></script>
+    
+    <script>
+        // Function to unmute the audio when the Unmute button is clicked
+        function toggleAudio() {
+        const audioElement = document.getElementById('background-audio');
+        const unmuteButton = document.getElementById('unmute-btn');
+        audioElement.muted = !audioElement.muted;
+
+        // Change the button text based on the audio state
+        if (audioElement.muted) {
+            unmuteButton.innerText = 'Unmute';
+        } else {
+            unmuteButton.innerText = 'Mute';
+        }
+    }
+    </script>
+</body>
+</html>

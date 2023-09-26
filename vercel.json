@@ -1,0 +1,6 @@
+{
+    "version": 2,
+    "name": "syntax-gpt",
+    "builds": [{ "src": "server.js", "use": "Qvercel/node" }],
+    "routes": [{ "src": "/(.*)", "dest": "/server.js" }]
+}

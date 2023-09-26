@@ -1,0 +1,246 @@
+/* style.css */
+
+body {
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+   
+}
+
+#app {
+    display: flex;
+    height: 100vh;
+}
+
+
+#chat-sessions {
+    width: 2%;
+    height: 100%;
+    padding: 20px;
+    background-color: #130e16;
+}
+
+/* #new-chat {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #5b5a5a;
+    border-radius: 5px;
+    background-color: #1f1f20;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 8px 6px rgba(0, 0, 0, 0.2);
+} */
+#new-chat {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #130e16;
+    border-radius: 5px;
+    background-color: #130e16;
+    color: #130e16;
+    cursor: pointer;
+    box-shadow: 0 5px 8px 6px rgba(0, 0, 0, 0.2);
+}
+
+#chat-window {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    padding-bottom: 50px;
+     background-color: #130e16; 
+
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: start;
+}
+
+#chat-log {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+   
+      padding-left: 20px;  
+    overflow-y: auto;
+    color: white;
+    font-size: 16px;
+}
+
+#input-area {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+button#mic-btn {
+    position: relative;
+    margin-left: 5px; /* add some space between the input field and microphone button */
+    padding: 10px 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #906aa5;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 20px;
+    border: 1px gray;
+    border-radius: 5px;
+    background-color: #231a28;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#user-input {
+    min-height: 30px;
+    flex-grow: 1;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #1b1a1a;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 6px rgba(0, 0, 0, 0.2);
+    background-color: #1f1f20;
+    color: white;
+}
+
+.chat-session-tab {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #130e16;
+    border-radius: 5px;
+    background-color: #130e16;
+    color: #130e16;
+    cursor: pointer;
+    /* box-shadow: 0 5px 8px 6px rgba(0, 0, 0, 0.2); */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.chat-message-wrapper {
+    width: 100%;
+}
+
+.chat-message.user {
+    background-color: #292332;
+    color: #fff;
+    padding: 20px;
+    margin-right: 35px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.chat-message.bot {
+    background-color: #453f4d;
+    color: #fff;
+    padding: 20px;
+    margin-right: 35px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.bot:after {
+    content: "_";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.active-tab {
+    /* box-shadow: 0px 0px 20px 5px rgb(255, 255, 255); */
+}
+
+#delete-chat {
+    position: fixed; /* Fix the position to bottom */
+    bottom: 30px; /* 30px from bottom */
+    width: calc(20% - 60px); /* width of chat session tabs considering the padding */
+    padding: 10px;
+    border: 1px solid #2f2f2f;
+    border-radius: 5px;
+    background-color: #1f1f20;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 8px 6px rgba(0, 0, 0, 0.2);
+}
+
+button#mic-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #231a28;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 2px;
+    margin-right: 20px; /* add some space between the mic button and submit button */
+}
+
+button#mic-btn.active {
+    background-color: #558b2f; /* Change this to your preference */
+}
+
+/* Additional CSS for the Unmute button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 40px 20px rgba(255, 165, 0, 0.2);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
+    }
+    90% {
+        box-shadow: 0 0 0 5px rgba(255, 165, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+    }
+}
+
+#unmute-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 580%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #231a28;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    animation: pulse 2s infinite;
+}
+
+
+
+ /* #model-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  model-viewer {
+    width: 100%;
+    height: 100%;
+    
+  } */
+    
